@@ -166,7 +166,8 @@ clean_middlemarch %>%
   # Put index on x-axis, sentiment on y-axis
   ggplot(aes(index, sentiment)) +
   # Make a bar chart with geom_col()
-  geom_col()
+  geom_col() +
+  ggtitle("Middlemarch")
 ```
 
     ## Joining, by = "word"
@@ -187,7 +188,8 @@ clean_wuthering %>%
   # Put index on x-axis, sentiment on y-axis
   ggplot(aes(index, sentiment)) +
   # Make a bar chart with geom_col()
-  geom_col()
+  geom_col() + 
+  ggtitle("Wuthering Heights")
 ```
 
     ## Joining, by = "word"
@@ -304,7 +306,7 @@ Sextgrams
 ``` r
 sextgram_middlemarch %>%
   count(sextgram) %>%
-  top_n(15, n) %>%
+  top_n(8, n) %>%
   mutate(sextgram = reorder(sextgram, n)) %>%
   ggplot(aes(sextgram, n)) +
   geom_col() +
